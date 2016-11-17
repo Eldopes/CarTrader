@@ -1,0 +1,100 @@
+﻿@model IEnumerable<CarTrader.Models.Cars>
+
+@{
+    ViewBag.Title = "Все объявления";
+}
+
+@Scripts.Render("~/Scripts/jquery-3.1.1.js") <!--Loading Jquery-->
+
+
+<h2>Все объявления о продаже автомобилей</h2>
+<br />
+
+<div id="database-results">
+    <table class="table table-hover">
+        <tr>
+            <th>
+                @Html.LabelFor(model => model, "№ объявления")
+            </th>
+            <th>
+                @Html.LabelFor(model => model, "Дата публикации")
+            </th>
+
+            <th>
+                @Html.LabelFor(model => model, "Марка/модель авто")
+            </th>
+
+            <th>
+                @Html.LabelFor(model => model, "Цена")
+            </th>
+            <th>
+                @Html.LabelFor(model => model, "Пробег")
+            </th>
+            <th>
+                @Html.LabelFor(model => model, "Контактный телефон")
+            </th>
+            <th>
+                @Html.LabelFor(model => model, "Продавец")
+            </th>
+            <th>
+                @Html.LabelFor(model => model, "Описание")
+            </th>
+            <th></th>
+
+        </tr>
+
+
+        @foreach (var entry in Model)
+            {
+            <tr>
+
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.id)
+                </td>
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.date)
+                </td>
+           
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.CarModel.model)
+                </td>
+ 
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.price)
+                </td>
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.mileage)
+                </td>
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.tel)
+                </td>
+                <td>
+                    <br />
+                    @Html.DisplayFor(modelItem => entry.seller)
+                </td>
+                <td>
+                    <br />
+                    <pre>
+                    @Html.DisplayFor(modelItem => entry.description)
+                    </pre>
+                </td>
+
+
+              
+                <!--All other table parameters-->
+
+            </tr>
+        }
+    </table>
+</div>
+
+
+
+
+
